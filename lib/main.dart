@@ -39,11 +39,6 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-        appBar: AppBar(
-          // Here we take the value from the MyHomePage object that was created by
-          // the App.build method, and use it to set our appbar title.
-          title: Text(widget.title),
-        ),
         body: Column(
           children: [
             Row(
@@ -53,9 +48,11 @@ class _MyHomePageState extends State<MyHomePage> {
                     left: 16,
                     top: 16,
                   ),
-                  color: Colors.red,
                   height: 64,
                   width: 64,
+                  child: const CircleAvatar(
+                    backgroundImage: NetworkImage('https://media-exp1.licdn.com/dms/image/C5603AQH0N150mG0GIg/profile-displayphoto-shrink_200_200/0/1617267809315?e=2147483647&v=beta&t=u-1yUx5xYTkSEisAt7XT1LuKwzJ0F4iNZEtT3fZaQos'),
+                  ),
                 ),
                 Column(
                   children: [
@@ -64,18 +61,20 @@ class _MyHomePageState extends State<MyHomePage> {
                         left: 16,
                         top: 16,
                       ),
-                      color: Colors.blue,
                       height: 16,
                       width: 200,
+                      child: const Text('Lucman M. Abdulrachman', style: TextStyle(
+                        fontWeight: FontWeight.bold
+                      ),),
                     ),
                     Container(
                       margin: const EdgeInsets.only(
                         left: 16,
                         top: 8,
                       ),
-                      color: Colors.blue,
-                      height: 12,
+                      height: 16,
                       width: 170,
+                      child: const Text('University Instructor I'),
                     ),
                   ],
                 )
