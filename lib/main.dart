@@ -37,7 +37,8 @@ class _HomePageState extends State<HomePage> {
     'notes_sharp': const Icon(Icons.notes_sharp),
     'favorite': const Icon(Icons.favorite),
     'pending': const Icon(Icons.pending),
-    'drive_file_rename_outline_rounded': const Icon(Icons.drive_file_rename_outline_rounded),
+    'drive_file_rename_outline_rounded':
+        const Icon(Icons.drive_file_rename_outline_rounded),
     'groups': const Icon(Icons.groups)
   };
   List<HomeMenu> profileMenu = [
@@ -52,7 +53,7 @@ class _HomePageState extends State<HomePage> {
     HomeMenu(name: 'Our Handbook', icon: 'drive_file_rename_outline_rounded'),
     HomeMenu(name: 'Community', icon: 'groups')
   ];
-  
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -191,7 +192,27 @@ class _HomePageState extends State<HomePage> {
             ),
           )
         ],
-        
+        Card(
+          margin: const EdgeInsets.only(right: 16, left: 16),
+          color: Colors.lightBlue,
+          child: Row(
+            children: [
+              Container(
+                  margin: const EdgeInsets.only(left: 25, bottom: 16, top: 16),
+                  height: 12,
+                  width: 12,
+                  color: Colors.transparent,
+                  child: const Icon(Icons.support_agent_outlined)),
+              Container(
+                margin: const EdgeInsets.only(left: 16),
+                height: 16,
+                width: 120,
+                color: Colors.transparent,
+                child: const Text('Feel free to ask. We are ready to help.'),
+              )
+            ],
+          ),
+        )
       ],
     ));
   }
