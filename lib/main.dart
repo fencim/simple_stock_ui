@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
   Map<String, Icon> iconMap = {
     'person': const Icon(Icons.person),
     'settings': const Icon(Icons.settings),
-    'notes_sharp': const Icon(Icons.notes_sharp),
+    'notes_sharp': const Icon(Icons.receipt_long_sharp),
     'favorite': const Icon(Icons.favorite),
     'pending': const Icon(Icons.pending),
     'drive_file_rename_outline_rounded':
@@ -214,7 +214,15 @@ class _HomePageState extends State<HomePage> {
           ),
         )
       ],
-    ));
+    ),
+    bottomNavigationBar: NavigationBar(destinations: [
+        TextButton(onPressed: () => {}, child: const Icon(Icons.home)),
+        TextButton(onPressed: () => {}, child: const Icon(Icons.pin_invoke)),
+        TextButton(onPressed: () => {}, child: const Icon(Icons.mail)),
+        TextButton(onPressed: () => {}, child: const Icon(Icons.person))
+      ]),
+      
+    );
   }
 }
 
