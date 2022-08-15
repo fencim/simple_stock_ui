@@ -35,13 +35,22 @@ class _HomePageState extends State<HomePage> {
     'person': const Icon(Icons.person),
     'settings': const Icon(Icons.settings),
     'notes_sharp': const Icon(Icons.notes_sharp),
-    'heart_broken': const Icon(Icons.heart_broken)
+    'favorite': const Icon(Icons.favorite),
+    'pending': const Icon(Icons.pending),
+    'drive_file_rename_outline_rounded': const Icon(Icons.drive_file_rename_outline_rounded),
+    'groups': const Icon(Icons.groups)
   };
-  List<HomeMenu> menu = [
+  List<HomeMenu> profileMenu = [
     HomeMenu(name: 'Personal Data', icon: 'person'),
     HomeMenu(name: 'Settings', icon: 'settings'),
     HomeMenu(name: 'E-Statement', icon: 'notes_sharp'),
-    HomeMenu(name: 'Referal Code', icon: 'heart_broken')
+    HomeMenu(name: 'Referal Code', icon: 'favorite')
+  ];
+
+  List<HomeMenu> appMenu = [
+    HomeMenu(name: 'FAQs', icon: 'pending'),
+    HomeMenu(name: 'Our Handbook', icon: 'drive_file_rename_outline_rounded'),
+    HomeMenu(name: 'Community', icon: 'groups')
   ];
   
   @override
@@ -98,7 +107,7 @@ class _HomePageState extends State<HomePage> {
         ),
         const SizedBox(height: 16),
         const Divider(height: 1.15),
-        for (HomeMenu item in menu) ...[
+        for (HomeMenu item in profileMenu) ...[
           const SizedBox(height: 16),
           GestureDetector(
             child: Row(
@@ -141,40 +150,48 @@ class _HomePageState extends State<HomePage> {
         ],
         const SizedBox(height: 16),
         const Divider(height: 1.15),
-        for (var i = 0; i < 3; i++) ...[
+        for (HomeMenu item in appMenu) ...[
           const SizedBox(height: 16),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  const SizedBox(
-                    width: 16,
-                  ),
-                  Container(
-                    height: 48,
-                    width: 48,
-                    color: Colors.red,
-                  ),
-                  const SizedBox(
-                    width: 16,
-                  ),
-                  Container(
-                    height: 12,
-                    width: 120,
-                    color: Colors.blue,
-                  ),
-                ],
-              ),
-              Container(
-                margin: const EdgeInsets.only(right: 16),
-                height: 12,
-                width: 12,
-                color: Colors.yellow,
-              ),
-            ],
+          GestureDetector(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    const SizedBox(
+                      width: 16,
+                    ),
+                    Container(
+                      height: 48,
+                      width: 48,
+                      color: Colors.transparent,
+                      child: iconMap[item.icon],
+                    ),
+                    const SizedBox(
+                      width: 16,
+                    ),
+                    Container(
+                      height: 14,
+                      width: 120,
+                      color: Colors.transparent,
+                      child: Text(item.name,
+                          style: const TextStyle(
+                              fontSize: 12, fontWeight: FontWeight.bold)),
+                    ),
+                  ],
+                ),
+                Container(
+                  margin: const EdgeInsets.only(right: 16),
+                  height: 12,
+                  width: 12,
+                  color: Colors.transparent,
+                  child: const Icon(Icons.arrow_right),
+                ),
+              ],
+            ),
           )
-        ]
+        ],
+        
       ],
     ));
   }
