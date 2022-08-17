@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'home_menu.dart';
+import 'update_profile.dart';
+import 'community.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +17,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(title: 'Flutter Demo Home Page'),
+      //home: const HomePage(title: 'Flutter Demo'),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const HomePage(title: 'Flutter Demo Home Page'),
+        '/profile': (context) => const UpdateProfile(),
+        '/community': (context) => const Community()
+      },
     );
   }
 }
@@ -31,30 +38,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  //preloading icons
-  // Map<String, IconData> iconMap = {
-  //   'person': const (Icons.person),
-  //   'settings': const (Icons.settings),
-  //   'notes_sharp': const (Icons.receipt_long_sharp),
-  //   'favorite': const (Icons.favorite),
-  //   'pending': const (Icons.pending),
-  //   'drive_file_rename_outline_rounded':
-  //       const (Icons.drive_file_rename_outline_rounded),
-  //   'groups': const (Icons.groups)
-  // };
-  // List<HomeMenu> profileMenu = [
-  //   HomeMenu(name: 'Personal Data', icon: 'person'),
-  //   HomeMenu(name: 'Settings', icon: 'settings'),
-  //   HomeMenu(name: 'E-Statement', icon: 'notes_sharp'),
-  //   HomeMenu(name: 'Referal Code', icon: 'favorite')
-  // ];
-
-  // List<HomeMenu> appMenu = [
-  //   HomeMenu(name: 'FAQs', icon: 'pending'),
-  //   HomeMenu(name: 'Our Handbook', icon: 'drive_file_rename_outline_rounded'),
-  //   HomeMenu(name: 'Community', icon: 'groups')
-  // ];
-
+  
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -78,8 +62,8 @@ class _HomePageState extends State<HomePage> {
                 width: 64,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(20),
-                  child: Image.network(
-                      'https://media-exp1.licdn.com/dms/image/C5603AQH0N150mG0GIg/profile-displayphoto-shrink_200_200/0/1617267809315?e=2147483647&v=beta&t=u-1yUx5xYTkSEisAt7XT1LuKwzJ0F4iNZEtT3fZaQos'),
+                  child: Image.asset(
+                      'assets/images/profile.png'),
                 ),
               ),
               Column(
@@ -179,10 +163,16 @@ class _HomePageState extends State<HomePage> {
         ],
       )),
       bottomNavigationBar: NavigationBar(destinations: [
-        TextButton(onPressed: () => {}, child: const Icon(Icons.home)),
-        TextButton(onPressed: () => {}, child: const Icon(Icons.pin_invoke)),
+        TextButton(onPressed: () => {
+          Navigator.pushNamed(context, '/')
+        }, child: const Icon(Icons.home)),
+        TextButton(onPressed: () => {
+          Navigator.pushNamed(context, '/community')
+        }, child: const Icon(Icons.pin_invoke)),
         TextButton(onPressed: () => {}, child: const Icon(Icons.mail)),
-        TextButton(onPressed: () => {}, child: const Icon(Icons.person))
+        TextButton(onPressed: () => {
+          Navigator.pushNamed(context, '/profile')
+        }, child: const Icon(Icons.person))
       ]),
     );
   }
