@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'avatar.dart';
 
 class UpdateProfile extends StatelessWidget {
+  static const String routeName = "/profile";
   const UpdateProfile({super.key});
   @override
   Widget build(BuildContext context) {
@@ -8,14 +10,7 @@ class UpdateProfile extends StatelessWidget {
       appBar: AppBar(title: const Text('Personal Data')),
         body: Column(
       children: [
-        Container(
-          height: 70,
-          alignment: Alignment.topCenter,
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(5),
-            child: Image.asset('assets/images/profile.png'),
-          ),
-        ),
+        Avatar(avatar: Image.asset('assets/images/profile.png'), height: 70),
         Container(
           margin: const EdgeInsets.only(left: 10, right: 10),
           child: Column(

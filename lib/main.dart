@@ -21,8 +21,8 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const HomePage(title: 'Flutter Demo Home Page'),
-        '/profile': (context) => const UpdateProfile(),
-        '/community': (context) => const Community()
+        UpdateProfile.routeName: (context) => const UpdateProfile(),
+        Community.routeName: (context) => const Community()
       },
     );
   }
@@ -167,11 +167,11 @@ class _HomePageState extends State<HomePage> {
           Navigator.pushNamed(context, '/')
         }, child: const Icon(Icons.home)),
         TextButton(onPressed: () => {
-          Navigator.pushNamed(context, '/community')
+          Navigator.pushNamed(context, Community.routeName)
         }, child: const Icon(Icons.pin_invoke)),
         TextButton(onPressed: () => {}, child: const Icon(Icons.mail)),
         TextButton(onPressed: () => {
-          Navigator.pushNamed(context, '/profile')
+          Navigator.pushNamed(context, UpdateProfile.routeName)
         }, child: const Icon(Icons.person))
       ]),
     );
